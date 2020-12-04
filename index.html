@@ -2,83 +2,138 @@
 <html lang="en-us">
 
 <!-- Mirrored from adventofcode.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Dec 2020 11:40:13 GMT -->
+
 <head>
-<meta charset="utf-8"/>
-<title>TimTim Gift 2020</title>
-<!--[if lt IE 9]><script src="/static/html5.js"></script><![endif]-->
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
-<link rel="stylesheet" type="text/css" href="static/style8e29.css?25"/>
-<link rel="stylesheet alternate" type="text/css" href="static/highcontrastcfcd.css?0" title="High Contrast"/>
-<link rel="shortcut icon" href="favicon.png"/>
+  <meta charset="utf-8" />
+  <title>TimTim Gift 2020</title>
+  <!--[if lt IE 9]><script src="/static/html5.js"></script><![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300&amp;subset=latin,latin-ext' rel='stylesheet'
+    type='text/css' />
+  <link rel="stylesheet" type="text/css" href="static/style8e29.css?25" />
+  <link rel="stylesheet alternate" type="text/css" href="static/highcontrastcfcd.css?0" title="High Contrast" />
+  <link rel="shortcut icon" href="favicon.png" />
 </head>
+
 <body>
-<header><div><h1 class="title-global">
-<a href="index.html">TimTim Gift 2020</a></h1><nav><ul><li>
-<a href="2020/about.html">[About]</a></li><li>
-<!-- <a href="2020.html">[Calendar]</a></li><li><a href="2020/support.html">[AoC++]</a></li><li><a href="2020/sponsors.html">[Sponsors]</a></li><li>
-<a href="2020/leaderboard.html">[Leaderboard]</a></li><li>
-<a href="2020/stats.html">[Stats]</a></li></ul></nav></div> -->
-</header>
+  <header>
+    <div>
+      <h1 class="title-global">
+        <a href="index.html">TimTim Gift 2020</a></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="2020/about.html">[About]</a></li>
+          <li>
 
-<div id="sidebar">
-</div><!--/sidebar-->
+  </header>
 
-<main>
-<pre class="calendar calendar-beckon">
-<a aria-label="Day 1" href="2020/day/1.html" class="calendar-day1">                 .......|......                    <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 2" href="2020/day/2.html" class="calendar-day2">               .'  -  -   - .''                    <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 3" href="2020/day/3.html" class="calendar-day3">               '.'. -   -   -'':                   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<span aria-hidden="true" class="calendar-day4">                   ''..'''.  .'                    <span class="calendar-day"> 4</span><span id="calendar-countdown"></span><script>
+  <div id="sidebar">
+  </div>
+  <!--/sidebar-->
+
+  <main>
+    <pre class="calendar calendar-beckon">
+
+<a id="Day 1" href="2020/day/1.html" class="calendar-day1">         .....    .....  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 2" href="2020/day/2.html" class="calendar-day2">      .'     '..'     '. <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 3" href="2020/day/3.html" class="calendar-day3">     :         `       : <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 4" href="2020/day/4.html" class="calendar-day1">     :                 : <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 5" href="2020/day/5.html" class="calendar-day2">      '.             .'  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 6" href="2020/day/6.html" class="calendar-day3">        '.         .'    <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 7" href="2020/day/7.html" class="calendar-day1">          '.     .'      <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Final" href="2020/day/gift.html" style="display:none" class="calendar-day1">            '. .'        <span class="calendar-day"> Gift!</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+
+
+
+<script>
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return JSON.parse(xmlHttp.responseText);
+}
 (function(){
-var countdown = document.getElementById("calendar-countdown");
-if (!countdown) return;
-var server_eta = 62545;
-var key = "2020-4-"+server_eta;
-var now = Math.floor(new Date().getTime()/1000);
-var target = server_eta + now;
-if (sessionStorage) {
-  // if you navigate away and hit the back button, this makes sure the countdown doesn't start from the wrong time
-  var prev_target = sessionStorage.getItem("calendar-target");
-  try { prev_target = JSON.parse(prev_target); } catch(e){}
-  if (prev_target && typeof prev_target === 'object' && prev_target.key === key) {
-    target = prev_target.target;
-  } else {
-    sessionStorage.setItem("calendar-target", JSON.stringify({key:key, target:target+1}));
-  }
-}
-
-var interval = null;
-function update_countdown() {
-  var remaining = Math.ceil(target - new Date().getTime()/1000);
-  if (remaining <= 0) {
-    clearInterval(interval);
-    interval = null;
-    countdown.textContent = "";
-
-    var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2020" + String.fromCharCode(47,100,97,121,47) + "4";
-    a.className = "calendar-day4 calendar-day-new";
-    var span = countdown.parentNode;
-    while (span.firstChild) {
-      a.appendChild(span.firstChild);
+  counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+  console.log(counter)
+  if(counter<8){
+    for (i = counter; i < 7+1; i++) {
+      document.getElementById(`Day ${i.toString()}`).style.display = 'none';
+      document.getElementById(`Day ${i.toString()}`).style.maxHeight = 0;
     }
-    a.appendChild(document.createTextNode("   "));
-    span.parentNode.insertBefore(a, span);
-    span.parentNode.removeChild(span);
-    countdown.parentNode.removeChild(countdown);
-  } else {
-    var hours = Math.floor(remaining/60/60);
-    remaining -= hours * 60 * 60;
-    var minutes = Math.floor(remaining/60);
-    remaining -= minutes * 60;
-    var seconds = remaining;
-    countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    date_start = new Date('2020-12-01');
+    date = new Date();
+    days_since = (date-date_start)/(1000*60*60*24)
+    next_to_solve = counter;
+    if (days_since<14 && counter<14){
+      console.log("er")
+      document.getElementById(`Day ${next_to_solve.toString()}`).innerHTML = "<span id=\"next day\" aria-hidden=\"true\" class=\"calendar-day\">                          <span class=\"calendar-day\" id=\"next day2\"> 5</span><span id=\"calendar-countdown\"></span></span>"
+      document.getElementById(`Day ${next_to_solve.toString()}`).style.display= ""
+      document.getElementById(`Day ${next_to_solve.toString()}`).href= ""
+      document.getElementById(`next day2`).textContent = next_to_solve;
+      console.log(document.getElementById(`next day2`))
+    }
   }
-}
-interval = setInterval(update_countdown,1000);
-update_countdown();
-})();
-</script></span>
+  else{
+    document.getElementById("Final").style.display = "";
+  }
+
+})()
+
+function updatertime(){
+  var countdown = document.getElementById("calendar-countdown");
+  if (!countdown) return;
+  var server_eta = 62545;
+  var key = "2020-12-"+server_eta;
+  var now = Math.floor(new Date().getTime()/1000);
+  var target = server_eta + now;
+  if (sessionStorage) {
+    // if you navigate away and hit the back button, this makes sure the countdown doesn't start from the wrong time
+    var prev_target = sessionStorage.getItem("calendar-target");
+    try { prev_target = JSON.parse(prev_target); } catch(e){}
+    if (prev_target && typeof prev_target === 'object' && prev_target.key === key) {
+      target = prev_target.target;
+    } else {
+      sessionStorage.setItem("calendar-target", JSON.stringify({key:key, target:target+1}));
+    }
+  }
+
+  var interval = null;
+  function update_countdown() {
+    var remaining = Math.ceil(target - new Date().getTime()/1000);
+    if (remaining <= 0) {
+      clearInterval(interval);
+      interval = null;
+      countdown.textContent = "";
+
+      var a = document.createElement("a");
+      a[String.fromCharCode(104,114,101,102)] = "/2020" + String.fromCharCode(47,100,97,121,47) + "4";
+      a.className = "calendar-day4 calendar-day-new";
+      var span = countdown.parentNode;
+      while (span.firstChild) {
+        a.appendChild(span.firstChild);
+      }
+      a.appendChild(document.createTextNode("   "));
+      span.parentNode.insertBefore(a, span);
+      span.parentNode.removeChild(span);
+      countdown.parentNode.removeChild(countdown);
+    } else {
+      var hours = Math.floor(remaining/60/60);
+      remaining -= hours * 60 * 60;
+      var minutes = Math.floor(remaining/60);
+      remaining -= minutes * 60;
+      var seconds = remaining;
+      countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+  }
+  interval = setInterval(update_countdown,1000);
+  update_countdown();
+  }
+updatertime();
+
+</script>
+</span>
 <span aria-hidden="true" class="">                           ''                    </span>
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
@@ -101,8 +156,9 @@ update_countdown();
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
 </pre>
-</main>a
+  </main>
 </body>
 
 <!-- Mirrored from adventofcode.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Dec 2020 11:40:13 GMT -->
+
 </html>

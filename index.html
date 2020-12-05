@@ -34,14 +34,14 @@
   <main>
     <pre class="calendar calendar-beckon">
 
-<a id="Day 1" href="2020/day/1.html" class="calendar-day1">         .....    .....  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 2" href="2020/day/2.html" class="calendar-day2">      .'     '..'     '. <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 3" href="2020/day/3.html" class="calendar-day3">     :         `       : <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 4" href="2020/day/4.html" class="calendar-day1">     :                 : <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 5" href="2020/day/5.html" class="calendar-day2">      '.             .'  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 6" href="2020/day/6.html" class="calendar-day3">        '.         .'    <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 7" href="2020/day/7.html" class="calendar-day1">          '.     .'      <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Final" href="2020/day/gift.html" style="display:none" class="calendar-day1">            '. .'        <span class="calendar-day"> Gift!</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 1" href="2020/day/1.html" class="calendar-day1">        .....    .....   <span id="sol1" class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 2" href="2020/day/2.html" class="calendar-day2">      .'     '..'     '. <span id="sol2" class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 3" href="2020/day/3.html" class="calendar-day3">     :         `       : <span id="sol3" class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 4" href="2020/day/4.html" class="calendar-day1">      '.             .'  <span id="sol4" class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 5" href="2020/day/5.html" class="calendar-day2">        '.         .'    <span id="sol5" class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 6" href="2020/day/6.html" class="calendar-day3">          '.     .'      <span id="sol6" class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 7" href="2020/day/7.html" class="calendar-day1">            '. .'        <span id="sol7" class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Final" href="2020/day/gift.html" style="display:none" class="calendar-day1">              '          <span class="calendar-day"> Gift!</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 
 
 
@@ -58,15 +58,16 @@ function httpGet(theUrl)
   counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
   console.log(counter)
   if(counter<8){
-    for (i = counter; i < 7+1; i++) {
+    date_start = new Date('2020-12-01');
+    date = new Date('2020-12-8');
+    days_since = (date-date_start)/(1000*60*60*24)
+    next_to_solve = Math.floor(Math.max(counter, days_since));
+    for (i = next_to_solve; i < 7+1; i++) {
       document.getElementById(`Day ${i.toString()}`).style.display = 'none';
       document.getElementById(`Day ${i.toString()}`).style.maxHeight = 0;
     }
-    date_start = new Date('2020-12-01');
-    date = new Date();
-    days_since = (date-date_start)/(1000*60*60*24)
-    next_to_solve = counter;
-    if (days_since<14 && counter<14){
+
+    if (days_since<8 && counter<14){
       console.log("er")
       document.getElementById(`Day ${next_to_solve.toString()}`).innerHTML = "<span id=\"next day\" aria-hidden=\"true\" class=\"calendar-day\">                          <span class=\"calendar-day\" id=\"next day2\"> 5</span><span id=\"calendar-countdown\"></span></span>"
       document.getElementById(`Day ${next_to_solve.toString()}`).style.display= ""
@@ -74,8 +75,14 @@ function httpGet(theUrl)
       document.getElementById(`next day2`).textContent = next_to_solve;
       console.log(document.getElementById(`next day2`))
     }
+    for (i = 1; i < counter; i++) {
+      document.getElementById(`sol${i.toString()}`).textContent = ` ${i.toString()} - SOLVED`;
+    }
   }
   else{
+    for (i = 1; i < counter; i++) {
+      document.getElementById(`sol${i.toString()}`).textContent = ` ${i.toString()} - SOLVED`;
+    }
     document.getElementById("Final").style.display = "";
   }
 

@@ -107,7 +107,7 @@ function httpGet(theUrl)
   counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
   console.log(counter)
   if(counter<8){
-    date_start = new Date('2020-12-01');
+    date_start = new Date('2020-12-14');
     date = new Date('2020-12-19');
     days_since = (date-date_start)/(1000*60*60*24)
     next_to_solve = Math.floor(Math.max(counter, days_since));

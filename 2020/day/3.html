@@ -38,26 +38,17 @@
             });
         </script>
         <article class="day-desc">
-            <h2>--- Day 3: Free breakfast ---</h2>
-            <p>Good morning! Sunny day in Valencia today.</p>
-
-
-            <p>You wake up and go straight to the kitchen to have breakfast but realize there is no food left. Jaime is
-                alrady up and knew about this but didn't go to buy any groceries because he prefers to have breakfast
-                outside
-                today but its not like you are any different :P. </p>
-
-            <p> Jaime takes you to a churros place and you both decide to go with some hot churros with hot chocolate to
-                share.
-                When the waitress comes to the table he tells you about a special challenge they have where if you can
-                tell them two numbers that dont contain any zero and if multiple result in 1.000.000 your breakfast will
-                be for free.
+            <h2>--- Day 3: Cake slices ---</h2>
+            <p>Today is Jaime birthday!</p>
+            <p>You and Jaime decided to make a cake to take to his family place and celebrate together with his family.
+                You are going to try replicate the same cake you bought for your own birthday
+                (that one with fresh strawberrys that tasted so good).
             </p>
-            <p>
-                Write the two numbers in the format <code>X, Y</code>, example <code>17, 19</code>.
-            </p>
-
-            <p>Hint: What are the prime factors?</p>
+            <p>You managed to cook the cake with a similar taste but can't say the same thing about the looks, Jaime
+                moved the cake while putting it on the fridge to cool down so is a bit asymetric. He says is okay and no
+                need to worry about it but you know it will make the cake a bit unstable during the cutting later.</p>
+            <p>You want to find the <em>minimum</em> number of cuts so the cake will hold it's shape better. There are 6 in the family you expect everyone to eat at least 2 pieces.</p>
+            <p>What is the minimum number of cuts you can do to the cake while still obtaining <em>12</em> pieces?</p>
 
         </article>
         <input type="hidden" name="level" value="1" />
@@ -76,7 +67,7 @@
                 function check() {
                     ans = document.getElementById('answer').value
                     console.log(ans == 1)
-                    if (counter <= 3 && ans == 1) {
+                    if (counter <= 3 && ans == 5) {
                         httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
                     }
                 }

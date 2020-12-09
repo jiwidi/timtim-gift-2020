@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <title>Day 5 - TimTim gift 2020</title>
@@ -14,15 +15,15 @@
 <body>
     <header>
         <div>
-          <h1 class="title-global">
-            <a href="../../">TimTim Gift 2020</a></h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="../about.html">[About]</a></li>
-              <li>
+            <h1 class="title-global">
+                <a href="../../">TimTim Gift 2020</a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../about.html">[About]</a></li>
+                    <li>
 
-      </header>
+    </header>
 
     <main>
         <script>
@@ -37,42 +38,53 @@
             });
         </script>
         <article class="day-desc">
-            <h2>--- Day 5: Roasted chestnuts  ---</h2>
+            <h2>--- Day 5: Roasted chestnuts ---</h2>
             <p>Today is Friday! you and Jaime are going shopping to the city center.</p>
-            <p>This is the first time you are celebrating christmas and you wants you to experience his favorities christmas traditions, there are way more than buying gifts! While shooping Jaime
+            <p>This is the first time you are celebrating christmas and you wants you to experience his favorities
+                christmas traditions, there are way more than buying gifts! While shooping Jaime
                 takes you to a street with roasted chestnuts stands, this a very typical christmas streetfood.</p>
-            <p>You are trying to decide between two stands to buy your bag of chestnuts, Jaime ask to both stands where are they chestnuts coming from as he has prefers the one coming from Valencia. The first stand says 70% of their chestnuts are Valencian and 30% from other spanish regions
-                while the second one has 50% Valencian 50% other regions. The first stand sells packages of 10 chestnuts at 2euros while the second one sells 6 chestnuts packages at 1 eur.
+            <p>You are trying to decide between two stands to buy your bag of chestnuts, Jaime ask to both stands where
+                are they chestnuts coming from as he has prefers the one coming from Valencia. The first stand says 70%
+                of their chestnuts are Valencian and 30% from other spanish regions
+                while the second one has 50% Valencian 50% other regions. The first stand sells packages of 10 chestnuts
+                at 2euros while the second one sells 6 chestnuts packages at 1euros.
             </p>
-            <p>You dont really mind from which stand to buy the chestnuts but you want to maximize Jaime happiness, you have ate outside with him enough times to know a happy Jaime is a Jaime with a full belly. Your past experiences with him allows you to come up
+            <p>You dont really mind from which stand to buy the chestnuts but you want to maximize Jaime happiness, you
+                have ate outside with him enough times to know a happy Jaime is a Jaime with a full belly. Your past
+                experiences with him allows you to come up
                 with a formula to rank which packages are better:</p>
-            <p> -- +4 Points for each chestnuts.  </p>
+            <p> -- +4 Points for each chestnuts. </p>
             <p> -- +2 Points if they come from Valencia. </p>
-            <p>You have 12 euros to spend in chestnuts, find out which stand will maximize Jaime happiness. How many points that the winning stand gets by your ranking system?</p>
+            <p>You have 12 euros to spend in chestnuts, find out which stand will <em>maximize</em> Jaime happiness. How many
+                points that the winning stand gets by your ranking system?</p>
 
         </article>
-        <input type="hidden" name="level" value="1"/><p>Answer: <input id="answer" type="text" name="answer" autocomplete="off"/> <input id="submitbutton" type="submit" value="[Submit]"/>
-        <script>
-            var counter =httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
-            function httpGet(theUrl)
-            {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return JSON.parse(xmlHttp.responseText);
-            }
-            function check(){
-                ans = document.getElementById('answer').value
-                console.log(ans==1)
-                if(counter<=1 && ans==1){
-                    httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+        <input type="hidden" name="level" value="1" />
+        <p>Answer: <input id="answer" type="text" name="answer" autocomplete="off" /> <input id="submitbutton"
+                type="submit" value="[Submit]" />
+            <script>
+                var counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                    xmlHttp.send(null);
+                    return JSON.parse(xmlHttp.responseText);
                 }
-            }
-            elem = document.getElementById('submitbutton');
-            elem.addEventListener("click", check);
-        </script>
+
+                function check() {
+                    ans = document.getElementById('answer').value
+                    console.log(ans == 1)
+                    if (counter <= 1 && ans == 1) {
+                        httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+                    }
+                }
+                elem = document.getElementById('submitbutton');
+                elem.addEventListener("click", check);
+            </script>
 
     </main>
 
 </body>
+
 </html>

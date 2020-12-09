@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <title>Day 4 - TimTim gift 2020</title>
@@ -14,15 +15,15 @@
 <body>
     <header>
         <div>
-          <h1 class="title-global">
-            <a href="../../">TimTim Gift 2020</a></h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="../about.html">[About]</a></li>
-              <li>
+            <h1 class="title-global">
+                <a href="../../">TimTim Gift 2020</a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../about.html">[About]</a></li>
+                    <li>
 
-      </header>
+    </header>
 
     <main>
         <script>
@@ -37,32 +38,58 @@
             });
         </script>
         <article class="day-desc">
-            <h2>--- Day 1: Report Repair ---</h2>
-            <p>Submit 1</p>
+            <h2>--- Day 4: The library ---</h2>
+            <p>Today you decided to accompany Jaime to the library, he has to go finish some labs before christmas and you thought it will be good
+                to see how his uni library is and maybe do some study on your own too.
+            </p>
+
+
+            <p>Turns out they are carrying extra security measures during christmas and people without a student card can't get inside. Jaime tries to ask
+                the staff to let you in by saying you are an exchange student but it doesn't work out so seems like you can't get in and decide to go to a public library to study.
+                On your way back one of the staff members calls you back, he needs help setting up the password security of the library website and he has agreed to let you in
+                if you solve it for him.
+
+                You need to write a program to check if a password is valid, a valid password will have the following requeriments:
+            </p>
+
+            <p> -- At least 1 letter between [a-z] and 1 letter between [A-Z].</p>
+            <p> -- At least 1 number between [0-9].</p>
+            <p> -- At least 1 character from [$#@].</p>
+            <p> -- Minimum length 6 characters.</p>
+            <p> -- Maximum length 16 characters.</p>
+
+            <p>
+                Write a program to check if a password is valid and verify it with this <a href="../input/2.txt" target="_blank">list of passwords</a>.
+                How many valid password are in the list?
+            </p>
 
         </article>
-        <input type="hidden" name="level" value="1"/><p>Answer: <input id="answer" type="text" name="answer" autocomplete="off"/> <input id="submitbutton" type="submit" value="[Submit]"/>
-        <script>
-            var counter =httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
-            function httpGet(theUrl)
-            {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return JSON.parse(xmlHttp.responseText);
-            }
-            function check(){
-                ans = document.getElementById('answer').value
-                console.log(ans==1)
-                if(counter<=4 && ans==1){
-                    httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+        <input type="hidden" name="level" value="1" />
+        <p>Answer: <input id="answer" type="text" name="answer" autocomplete="off" /> <input id="submitbutton"
+                type="submit" value="[Submit]" />
+            <script>
+                var counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                    xmlHttp.send(null);
+                    return JSON.parse(xmlHttp.responseText);
                 }
-            }
-            elem = document.getElementById('submitbutton');
-            elem.addEventListener("click", check);
-        </script>
+
+                function check() {
+                    ans = document.getElementById('answer').value
+                    console.log(ans == 1)
+                    if (counter <= 4 && ans == 5) {
+                        httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+                    }
+                }
+                elem = document.getElementById('submitbutton');
+                elem.addEventListener("click", check);
+            </script>
 
     </main>
 
 </body>
+
 </html>

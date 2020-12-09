@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <title>Day 3 - TimTim gift 2020</title>
@@ -14,15 +15,15 @@
 <body>
     <header>
         <div>
-          <h1 class="title-global">
-            <a href="../../">TimTim Gift 2020</a></h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="../about.html">[About]</a></li>
-              <li>
+            <h1 class="title-global">
+                <a href="../../">TimTim Gift 2020</a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../about.html">[About]</a></li>
+                    <li>
 
-      </header>
+    </header>
 
     <main>
         <script>
@@ -37,32 +38,54 @@
             });
         </script>
         <article class="day-desc">
-            <h2>--- Day 1: Report Repair ---</h2>
-            <p>Submit 1</p>
+            <h2>--- Day 3: Free breakfast ---</h2>
+            <p>Good morning! Sunny day in Valencia today.</p>
+
+
+            <p>You wake up and go straight to the kitchen to have breakfast but realize there is no food left. Jaime is
+                alrady up and knew about this but didn't go to buy any groceries because he prefers to have breakfast
+                outside
+                today but its not like you are any different :P. </p>
+
+            <p> Jaime takes you to a churros place and you both decide to go with some hot churros with hot chocolate to
+                share.
+                When the waitress comes to the table he tells you about a special challenge they have where if you can
+                tell them two numbers that dont contain any zero and if multiple result in 1.000.000 your breakfast will
+                be for free.
+            </p>
+            <p>
+                Write the two numbers in the format <code>X, Y</code>, example <code>17, 19</code>.
+            </p>
+
+            <p>Hint: What are the prime factors?</p>
 
         </article>
-        <input type="hidden" name="level" value="1"/><p>Answer: <input id="answer" type="text" name="answer" autocomplete="off"/> <input id="submitbutton" type="submit" value="[Submit]"/>
-        <script>
-            var counter =httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
-            function httpGet(theUrl)
-            {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return JSON.parse(xmlHttp.responseText);
-            }
-            function check(){
-                ans = document.getElementById('answer').value
-                console.log(ans==1)
-                if(counter<=3 && ans==1){
-                    httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+        <input type="hidden" name="level" value="1" />
+        <p>Answer: <input id="answer" type="text" name="answer" autocomplete="off" /> <input id="submitbutton"
+                type="submit" value="[Submit]" />
+            <script>
+                var counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                    xmlHttp.send(null);
+                    return JSON.parse(xmlHttp.responseText);
                 }
-            }
-            elem = document.getElementById('submitbutton');
-            elem.addEventListener("click", check);
-        </script>
+
+                function check() {
+                    ans = document.getElementById('answer').value
+                    console.log(ans == 1)
+                    if (counter <= 3 && ans == 1) {
+                        httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+                    }
+                }
+                elem = document.getElementById('submitbutton');
+                elem.addEventListener("click", check);
+            </script>
 
     </main>
 
 </body>
+
 </html>

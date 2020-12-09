@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <title>Day 1 - TimTim gift 2020</title>
@@ -14,15 +15,15 @@
 <body>
     <header>
         <div>
-          <h1 class="title-global">
-            <a href="../../">TimTim Gift 2020</a></h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="../about.html">[About]</a></li>
-              <li>
+            <h1 class="title-global">
+                <a href="../../">TimTim Gift 2020</a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../about.html">[About]</a></li>
+                    <li>
 
-      </header>
+    </header>
 
     <main>
         <script>
@@ -38,57 +39,74 @@
         </script>
         <article class="day-desc">
             <h2>--- Day 1: Report Repair ---</h2>
-            <p>After a long wait you arrive Spain excited to be back with Jaime. Your flight arrives as expected to Valencia at 18:00
+            <p>After a long wait you arrive Spain excited to be back with Jaime. Your flight arrives as expected to
+                Valencia at 18:00
                 and you are getting ready to do a small quarantine with Jaime
             </p>
 
-            <p>Upon arrival you decide to switch off plane mode on your phone to tell Jaime you arrived and go together to the apartament. As soon as you do it a huge list of
-                text messages from an unkown number appear on your phone, all of them mentioning some sort of deviation on the apartament bill report you booked with Jaime. Turns out the computer used by the company
-                owning the aparment failed to sum up the numbers and they are trying to charge you for extra money!! You can't remember which items were included in your bill but you know there were <em>only two items in your bill</em>.
+            <p>Upon arrival you decide to switch off plane mode on your phone to tell Jaime you arrived and go together
+                to the apartament. As soon as you do it a huge list of
+                text messages from an unkown number appear on your phone, all of them mentioning some sort of deviation
+                on the apartament bill report you booked with Jaime. Turns out the computer used by the company
+                owning the aparment failed to sum up the numbers and they are trying to charge you for extra money!! You
+                can't remember which items were included in your bill but you know there were <em>only two items in your
+                    bill</em>.
             </p>
-            <p>You quickly discover the error and see that they added an infinite list of extras you didnt order. The company doesn't know which items on the bill report belong to you but they explain you a way to figure it out. </p>
-            <p>Seems like all the ids of the correct items you ordered should add up to an order id. So if we had a correct bill of 3 items </p>
-<pre><code>1721
+            <p>You quickly discover the error and see that they added an infinite list of extras you didnt order. The
+                company doesn't know which items on the bill report belong to you but they explain you a way to figure
+                it out. </p>
+            <p>Seems like all the ids of the correct items you ordered should add up to an order id. So if we had a
+                correct bill of 3 items </p>
+            <pre><code>1721
 979
 366
 </code></pre>
             <p>We can check that the sum of each item in the bill adds exactly to the order id id <code>3066</code> </p>
-            <p>With the use of this logic, <em>your order id </em><code>2020</code> and <a href="../input/1.txt" target="_blank">your bill report</a> you should be able to find the two items that sum up to 2020 and fix this problem with the company.</p>
-            <p>The company wants you to provide them the result of multiplying the item id of the correct items in your bill.</p>
+            <p>With the use of this logic, <em>your order id </em><code>2020</code> and <a href="../input/1.txt"
+                    target="_blank">your bill report</a> you should be able to find the two items that sum up to 2020
+                and fix this problem with the company.</p>
+            <p>The company wants you to provide them the result of multiplying the item id of the correct items in your
+                bill.</p>
 
             <p>---Example</p>
-            <p>If your bill report was: <pre><code>1564
+            <p>If your bill report was:
+                <pre><code>1564
 456
 234234
 22
 12
 775
-</code></pre> You should find that <code>1564</code> and <code>456</code> sum up to <code>2020</code> and return their product<code>713184</code></p>
+</code></pre> You should find that <code>1564</code> and <code>456</code> sum up to <code>2020</code> and return their
+                product<code>713184</code></p>
 
         </article>
-        <input type="hidden" name="level" value="1"/><p>Answer: <input id="answer" type="text" name="answer" autocomplete="off"/> <input id="submitbutton" type="submit" value="[Submit]"/>
-        <script>
-            var counter =httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
-            function httpGet(theUrl)
-            {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return JSON.parse(xmlHttp.responseText);
-            }
-            function check(){
-                ans = document.getElementById('answer').value
-                console.log(ans==1)
-                if(counter<=1 && ans==545379){
-                    httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
-                    alert("Correct!") // Necesita cambio tete
+        <input type="hidden" name="level" value="1" />
+        <p>Answer: <input id="answer" type="text" name="answer" autocomplete="off" /> <input id="submitbutton"
+                type="submit" value="[Submit]" />
+            <script>
+                var counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                    xmlHttp.send(null);
+                    return JSON.parse(xmlHttp.responseText);
                 }
-            }
-            elem = document.getElementById('submitbutton');
-            elem.addEventListener("click", check);
-        </script>
+
+                function check() {
+                    ans = document.getElementById('answer').value
+                    console.log(ans == 1)
+                    if (counter <= 1 && ans == 545379) {
+                        httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+                        alert("Correct!") // Necesita cambio tete
+                    }
+                }
+                elem = document.getElementById('submitbutton');
+                elem.addEventListener("click", check);
+            </script>
 
     </main>
 
 </body>
+
 </html>

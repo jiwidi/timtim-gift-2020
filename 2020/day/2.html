@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <title>Day 2 - TimTim gift 2020</title>
@@ -14,15 +15,15 @@
 <body>
     <header>
         <div>
-          <h1 class="title-global">
-            <a href="../../">TimTim Gift 2020</a></h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="../about.html">[About]</a></li>
-              <li>
+            <h1 class="title-global">
+                <a href="../../">TimTim Gift 2020</a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../about.html">[About]</a></li>
+                    <li>
 
-      </header>
+    </header>
 
     <main>
         <script>
@@ -38,38 +39,50 @@
         </script>
         <article class="day-desc">
             <h2>--- Day 2: Language problem ---</h2>
-            <p>Day 2 in Valencia starts, you wake up next to Jaime and have a wonderful breakfast. Today is tuesday so Jaime is working and doesn't have much time in the morning to go out for plans so you decide to go Mercadona on your own to buy food so you can both prepare lunch together.</p>
-            <p>You arrive at Mercadona and buy the food you both agreed for lunch but also some chips with a new flavour you havent tasted before. When you get to the cashier you realize you don't have any cash with you and need to ask the cashier to pay with card but you dont speak any spanish and she doesnt speak "proper" english. </p>
-            <p>Instead the cashier speaks <a href="https://en.wikipedia.org/wiki/Pig_Latin">Pig latin</a>, an english variant where words are altered. You need to find the pig latin version of <code>Please can I pay with card</code>.</p>
+            <p>Day 2 in Valencia starts, you wake up next to Jaime and have a wonderful breakfast. Today is tuesday so
+                Jaime is working and doesn't have much time in the morning to go out for plans so you decide to go
+                Mercadona on your own to buy food so you can both prepare lunch together.</p>
+            <p>You arrive at Mercadona and buy the food you both agreed for lunch but also some chips with a new flavour
+                you havent tasted before. When you get to the cashier you realize you don't have any cash with you and
+                need to ask the cashier to pay with card but you dont speak any spanish and she doesnt speak "proper"
+                english. </p>
+            <p>Instead the cashier speaks <a href="https://en.wikipedia.org/wiki/Pig_Latin">Pig latin</a>, an english
+                variant where words are altered. You need to find the pig latin version of <code>Please can I pay with
+                    card</code>.</p>
             <p>In order to translate to pig latin you need to follow this logic:</p>
             <p>* Words that start with a vowel (A, E, I, O, U) simply have "WAY" appended to the end of the word.</p>
-            <p>* Words that start with a consonant have all consonant letters up to the first vowel moved to the end of the word (as opposed to just the first consonant letter), and "AY" is appended.
+            <p>* Words that start with a consonant have all consonant letters up to the first vowel moved to the end of
+                the word (as opposed to just the first consonant letter), and "AY" is appended.
                 ('Y' is counted as a vowel in this context)</p>
             <p>So for example the word <code>Please</code> would be translated to <code>Easeplay</code></p>
             <p>What is the pig latin translation of <code>Please can I pay with card</code>?</p>
         </article>
-        <input type="hidden" name="level" value="1"/><p>Answer: <input id="answer" type="text" name="answer" autocomplete="off"/> <input id="submitbutton" type="submit" value="[Submit]"/>
-        <script>
-            var counter =httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
-            function httpGet(theUrl)
-            {
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-                xmlHttp.send( null );
-                return JSON.parse(xmlHttp.responseText);
-            }
-            function check(){
-                ans = document.getElementById('answer').value
-                console.log(ans==1)
-                if(counter<=2 && ans=="Easeplay ancay Iway aypay ithway ardcay"){
-                    httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+        <input type="hidden" name="level" value="1" />
+        <p>Answer: <input id="answer" type="text" name="answer" autocomplete="off" /> <input id="submitbutton"
+                type="submit" value="[Submit]" />
+            <script>
+                var counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                    xmlHttp.send(null);
+                    return JSON.parse(xmlHttp.responseText);
                 }
-            }
-            elem = document.getElementById('submitbutton');
-            elem.addEventListener("click", check);
-        </script>
+
+                function check() {
+                    ans = document.getElementById('answer').value
+                    console.log(ans == 1)
+                    if (counter <= 2 && ans == "Easeplay ancay Iway aypay ithway ardcay") {
+                        httpGet("https://api.countapi.xyz/update/timtim.gift/caca?amount=+1")
+                    }
+                }
+                elem = document.getElementById('submitbutton');
+                elem.addEventListener("click", check);
+            </script>
 
     </main>
 
 </body>
+
 </html>

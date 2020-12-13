@@ -37,12 +37,12 @@
 <a id="Day 1" href="2020/day/1.html" class="calendar-day1" style="color:red">        .....    .....   <span id="sol1" class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a id="Day 2" href="2020/day/2.html" class="calendar-day2" style="color:red">      .'     '..'     '. <span id="sol2" class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a id="Day 3" href="2020/day/3.html" class="calendar-day3" style="color:red">     :         `       : <span id="sol3" class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 4" href="2020/day/4.html" class="calendar-day1" style="color:red">      '.             .'  <span id="sol4" class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 5" href="2020/day/5.html" class="calendar-day2" style="color:red">        '.         .'    <span id="sol5" class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 6" href="2020/day/6.html" class="calendar-day3" style="color:red">          '.     .'      <span id="sol6" class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a id="Day 7" href="2020/day/7.html" class="calendar-day1" style="color:red">            '. .'        <span id="sol7" class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 4" href="2020/day/4.html" class="calendar-day4" style="color:red">      '.             .'  <span id="sol4" class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 5" href="2020/day/5.html" class="calendar-day5" style="color:red">        '.         .'    <span id="sol5" class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 6" href="2020/day/6.html" class="calendar-day6" style="color:red">          '.     .'      <span id="sol6" class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a id="Day 7" href="2020/day/7.html" class="calendar-day7" style="color:red">            '. .'        <span id="sol7" class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a id="dot"  class="calendar-day1" style="display:none;color:red" class="calendar-day1">              '          <span class="calendar-day"> Finished!</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<p id="not-final" style="position:absolute;top:0">
+<p id="not-final">
                                                                                           .!,            .!,
                                                                                           ~ 6 ~          ~ 6 ~
                                                                                      .    ' i `  .-^-.   ' i `
@@ -68,7 +68,7 @@
                                                                                 ":-------:"
                                                                                   \_____/
 </p>
-<p id="Final" style="display:none;position:absolute;top:0">
+<p id="Final" style="display:none">
                                                                                           .!,            .!,
                                                                                           ~ 6 ~          ~ 6 ~
                                                                                      .    ' i `  .-^-.   ' i `
@@ -107,9 +107,9 @@ function httpGet(theUrl)
   counter = httpGet("https://api.countapi.xyz/get/timtim.gift/caca").value
   console.log(counter)
   if(counter<8){
-    date_start = new Date('2020-12-14');
-    date = new Date('2020-12-13');
-    days_since = (date-date_start)/(1000*60*60*24)
+    date_start = new Date('2020-12-13');
+    date = new Date("2020-12-14");
+    days_since = (date-date_start)/(1000*60*60*24);
     next_to_solve = Math.floor(Math.max(counter, days_since));
     for (i = next_to_solve; i < 7+1; i++) {
       document.getElementById(`Day ${i.toString()}`).style.display = 'none';
@@ -142,7 +142,7 @@ function httpGet(theUrl)
 function updatertime(){
   var countdown = document.getElementById("calendar-countdown");
   if (!countdown) return;
-  var server_eta = 62545;
+  var server_eta = 3600;
   var key = "2020-12-"+server_eta;
   var now = Math.floor(new Date().getTime()/1000);
   var target = server_eta + now;

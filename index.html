@@ -142,7 +142,7 @@ function httpGet(theUrl)
 function updatertime(){
   var countdown = document.getElementById("calendar-countdown");
   if (!countdown) return;
-  var server_eta = 3600;
+  var server_eta = 1;
   var key = "2020-12-"+server_eta;
   var now = Math.floor(new Date().getTime()/1000);
   var target = server_eta + now;

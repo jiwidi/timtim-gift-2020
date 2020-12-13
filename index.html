@@ -42,7 +42,7 @@
 <a id="Day 6" href="2020/day/6.html" class="calendar-day3" style="color:red">          '.     .'      <span id="sol6" class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a id="Day 7" href="2020/day/7.html" class="calendar-day1" style="color:red">            '. .'        <span id="sol7" class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a id="dot"  class="calendar-day1" style="display:none;color:red" class="calendar-day1">              '          <span class="calendar-day"> Finished!</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<p id="not-final" style="">
+<p id="not-final" style="position:absolute;top:0">
                                                                                           .!,            .!,
                                                                                           ~ 6 ~          ~ 6 ~
                                                                                      .    ' i `  .-^-.   ' i `
@@ -68,7 +68,7 @@
                                                                                 ":-------:"
                                                                                   \_____/
 </p>
-<p id="Final" style="display:none">
+<p id="Final" style="display:none;position:absolute;top:0">
                                                                                           .!,            .!,
                                                                                           ~ 6 ~          ~ 6 ~
                                                                                      .    ' i `  .-^-.   ' i `
@@ -108,7 +108,7 @@ function httpGet(theUrl)
   console.log(counter)
   if(counter<8){
     date_start = new Date('2020-12-14');
-    date = new Date('2020-12-19');
+    date = new Date('2020-12-13');
     days_since = (date-date_start)/(1000*60*60*24)
     next_to_solve = Math.floor(Math.max(counter, days_since));
     for (i = next_to_solve; i < 7+1; i++) {
